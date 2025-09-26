@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalTech Solutions - Company Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --text: #334155;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center right;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Branch Selector */
+        .branch-selector {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .branch-selector h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .branch-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .branch-option {
+            background-color: var(--light);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .branch-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .branch-option.active {
+            border-color: var(--primary);
+            background-color: rgba(37, 99, 235, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .branch-option i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .branch-option h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .branch-option p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Branch Info */
+        .branch-info {
+            display: none;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .branch-info.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .branch-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .branch-header i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .branch-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: var(--radius);
+        }
+
+        .detail-icon {
+            background-color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+            box-shadow: var(--shadow);
+        }
+
+        .branch-map {
+            width: 100%;
+            height: 300px;
+            background-color: #e2e8f0;
+            border-radius: var(--radius);
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .photo-banner {
+            margin-bottom: 3rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .photo-banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-company {
+            margin-bottom: 4rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .vision, .mission {
+            background-color: var(--light);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            border-top: 4px solid var(--primary);
+        }
+
+        .vision h3, .mission h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vision h3 i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .mission h3 i {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .mission ul {
+            list-style: none;
+        }
+
+        .mission li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .mission li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Message Us Section */
+        .message-section {
+            background-color: var(--light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-text p {
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.875rem;
+            font-size: 1.1rem;
+        }
+
+        .form-results {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .form-results h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .result-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .footer-column p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .vision-mission, .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                padding: 1rem 0;
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .branch-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .hero::before {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .branch-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-globe"></i>
+                    Global<span>Tech</span>
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#profile" class="nav-link">Our Profile</a></li>
+                    <li><a href="#branches" class="nav-link">Our Branches</a></li>
+                    <li><a href="#message" class="nav-link">Message Us</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="welcome-message">Welcome to GlobalTech Solutions</h1>
+                <p>We deliver innovative digital solutions that drive business growth and transform industries. Our team of experts is committed to excellence in every project we undertake.</p>
+                <div class="hero-buttons">
+                    <a href="#profile" class="btn">Learn More</a>
+                    <a href="#branches" class="btn btn-outline">Our Branches</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Profile</h2>
+                <p class="section-subtitle">Get to know more about our company, our vision, and our mission</p>
+            </div>
+            
+            <!-- Photo Banner -->
+            <div class="photo-banner">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="GlobalTech Office">
+            </div>
+            
+            <!-- About Company -->
+            <div class="about-company">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>About GlobalTech</h3>
+                        <p>Founded in 2012, GlobalTech has grown from a small startup to a leading technology solutions provider with a global presence. We specialize in software development, cloud solutions, and digital transformation services.</p>
+                        <p>Our team of over 300 professionals works with clients across various industries, including finance, healthcare, e-commerce, and education. We pride ourselves on delivering solutions that not only meet but exceed our clients' expectations.</p>
+                        <p>At GlobalTech, we believe in the power of technology to solve complex problems and create new opportunities. Our approach combines technical expertise with a deep understanding of our clients' business needs.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vision and Mission -->
+            <div class="vision-mission">
+                <div class="vision">
+                    <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                    <p>To be the world's most trusted technology partner, empowering businesses to thrive in the digital age through innovative solutions and exceptional service.</p>
+                    <p>We envision a future where technology seamlessly integrates with business processes to create efficiencies, drive growth, and foster sustainable development.</p>
+                </div>
+                <div class="mission">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <ul>
+                        <li>Deliver cutting-edge technology solutions that drive business success</li>
+                        <li>Foster a culture of innovation, collaboration, and continuous learning</li>
+                        <li>Build lasting partnerships based on trust, transparency, and mutual growth</li>
+                        <li>Contribute to the technology community through knowledge sharing and mentorship</li>
+                        <li>Maintain the highest standards of quality and ethical practices in all our endeavors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches" class="profile-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Global Branches</h2>
+                <p class="section-subtitle">Click on a branch to learn more about our offices around the world</p>
+            </div>
+            
+            <div class="branch-selector">
+                <h3>Select a Branch</h3>
+                <div class="branch-options">
+                    <div class="branch-option active" data-branch="new-york">
+                        <i class="fas fa-city"></i>
+                        <h4>New York</h4>
+                        <p>Headquarters</p>
+                    </div>
+                    <div class="branch-option" data-branch="london">
+                        <i class="fas fa-landmark"></i>
+                        <h4>London</h4>
+                        <p>European Hub</p>
+                    </div>
+                    <div class="branch-option" data-branch="singapore">
+                        <i class="fas fa-globe-asia"></i>
+                        <h4>Singapore</h4>
+                        <p>Asia-Pacific Center</p>
+                    </div>
+                    <div class="branch-option" data-branch="sydney">
+                        <i class="fas fa-sun"></i>
+                        <h4>Sydney</h4>
+                        <p>Oceania Operations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New York Branch Info -->
+            <div class="branch-info active" id="new-york-info">
+                <div class="branch-header">
+                    <i class="fas fa-city"></i>
+                    <div>
+                        <h3>New York Headquarters</h3>
+                        <p>Our flagship office and global headquarters</p>
+                    </div>
+                </div>
+                <div class="branch-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>123 Tech Avenue, Manhattan, NY 10001, USA</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (212) 555-7890</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4>Team Size</h4>
+                            <p>150+ professionals</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h4>Specialties</h4>
+                            <p>Enterprise Software, AI Solutions, Cloud Infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="branch-description">Our New York headquarters serves as the central hub for all GlobalTech operations. Established in 2012, this branch leads our research and development initiatives and houses our executive leadership team. The New York office specializes in enterprise-level solutions and strategic partnerships with Fortune 500 companies.</p>
+                <div class="branch-map">
+                    <i class="fas fa-map-marked-alt"></i> New York Location Map
+                </div>
+            </div>
+            
+            <!-- London Branch Info -->
+            <div class="branch-info" id="london-info">
+                <div class="branch-header">
+                    <i class="fas fa-landmark"></i>
+                    <div>
+                        <h3>London European Hub</h3>
+                        <p>Serving clients across Europe and the UK</p>
+                    </div>
+                </div>
+                <div class="branch-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>45 Innovation Street, London EC2A 4NE, UK</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+44 (0) 20 7946 0958</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4>Team Size</h4>
+                            <p>80+ professionals</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h4>Specialties</h4>
+                            <p>FinTech, Cybersecurity, Data Analytics</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="branch-description">The London branch, established in 2015, serves as our European headquarters. This office specializes in financial technology solutions and has developed strong partnerships with leading European banks and financial institutions. The team in London is known for its expertise in cybersecurity and regulatory compliance solutions.</p>
+                <div class="branch-map">
+                    <i class="fas fa-map-marked-alt"></i> London Location Map
+                </div>
+            </div>
+            
+            <!-- Singapore Branch Info -->
+            <div class="branch-info" id="singapore-info">
+                <div class="branch-header">
+                    <i class="fas fa-globe-asia"></i>
+                    <div>
+                        <h3>Singapore Asia-Pacific Center</h3>
+                        <p>Leading our operations across Asia</p>
+                    </div>
+                </div>
+                <div class="branch-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>10 Marina Boulevard, Marina Bay, Singapore 018983</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+65 6123 4567</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4>Team Size</h4>
+                            <p>60+ professionals</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h4>Specialties</h4>
+                            <p>E-commerce, Mobile Applications, IoT Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="branch-description">Our Singapore office, opened in 2017, serves as the hub for our Asia-Pacific operations. This branch specializes in e-commerce platforms and mobile application development, serving clients across Southeast Asia. The Singapore team has particular expertise in IoT solutions for smart city initiatives and logistics optimization.</p>
+                <div class="branch-map">
+                    <i class="fas fa-map-marked-alt"></i> Singapore Location Map
+                </div>
+            </div>
+            
+            <!-- Sydney Branch Info -->
+            <div class="branch-info" id="sydney-info">
+                <div class="branch-header">
+                    <i class="fas fa-sun"></i>
+                    <div>
+                        <h3>Sydney Oceania Operations</h3>
+                        <p>Serving Australia, New Zealand, and the Pacific Islands</p>
+                    </div>
+                </div>
+                <div class="branch-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>100 Tech Street, Sydney NSW 2000, Australia</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+61 2 9876 5432</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h4>Team Size</h4>
+                            <p>40+ professionals</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h4>Specialties</h4>
+                            <p>Healthcare IT, Education Technology, AgriTech</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="branch-description">The Sydney branch, established in 2019, focuses on serving the unique needs of the Oceania region. This office specializes in healthcare IT solutions and education technology platforms. The Sydney team has developed innovative AgriTech solutions that are being adopted by agricultural businesses across Australia and New Zealand.</p>
+                <div class="branch-map">
+                    <i class="fas fa-map-marked-alt"></i> Sydney Location Map
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Us Section -->
+    <section id="message" class="message-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Message Us</h2>
+                <p class="section-subtitle">Get in touch with our team. We'd love to hear from you!</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Headquarters</h4>
+                                <p>123 Tech Avenue, Manhattan, NY 10001, USA</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+1 (212) 555-7890</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@globaltech.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name">
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address">
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="branch">Select Branch (Optional)</label>
+                            <select id="branch" name="branch">
+                                <option value="">-- Select a Branch --</option>
+                                <option value="new-york">New York Headquarters</option>
+                                <option value="london">London European Hub</option>
+                                <option value="singapore">Singapore Asia-Pacific Center</option>
+                                <option value="sydney">Sydney Oceania Operations</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message-text" name="message" rows="5" placeholder="Enter your message"></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn submit-btn">Send Message</button>
+                    </form>
+                    
+                    <!-- Form Results Display -->
+                    <div id="form-results" class="form-results">
+                        <h3>Thank you for your message!</h3>
+                        <p>We have received your inquiry and will get back to you within 24 hours.</p>
+                        <div class="result-item">
+                            <span class="result-label">Name:</span> <span id="result-name"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Email:</span> <span id="result-email"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Phone:</span> <span id="result-phone"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Branch:</span> <span id="result-branch"></span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Message:</span> <span id="result-message"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GlobalTech Solutions</h3>
+                    <p>Providing innovative technology solutions since 2012. We help businesses transform and thrive in the digital era through cutting-edge software and consulting services.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#profile">Our Profile</a></li>
+                        <li><a href="#branches">Our Branches</a></li>
+                        <li><a href="#message">Message Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Branches</h3>
+                    <ul class="footer-links">
+                        <li><a href="#branches" data-branch="new-york">New York Headquarters</a></li>
+                        <li><a href="#branches" data-branch="london">London European Hub</a></li>
+                        <li><a href="#branches" data-branch="singapore">Singapore Asia-Pacific</a></li>
+                        <li><a href="#branches" data-branch="sydney">Sydney Oceania</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 GlobalTech Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+            
+            // Update active nav link on scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Welcome Message with Name
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('name');
+            const welcomeMessage = document.getElementById('welcome-message');
+            
+            if (userName && welcomeMessage) {
+                welcomeMessage.textContent = `Hi ${userName}, Welcome to GlobalTech Solutions`;
+            }
+            
+            // Branch Selection Functionality
+            const branchOptions = document.querySelectorAll('.branch-option');
+            const branchInfos = document.querySelectorAll('.branch-info');
+            
+            branchOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const branchId = this.getAttribute('data-branch');
+                    
+                    // Remove active class from all options
+                    branchOptions.forEach(opt => opt.classList.remove('active'));
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Hide all branch info
+                    branchInfos.forEach(info => info.classList.remove('active'));
+                    // Show selected branch info
+                    document.getElementById(`${branchId}-info`).classList.add('active');
+                });
+            });
+            
+            // Branch links in footer
+            document.querySelectorAll('.footer-links a[data-branch]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const branchId = this.getAttribute('data-branch');
+                    
+                    // Scroll to branches section
+                    document.getElementById('branches').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // After a short delay, activate the branch
+                    setTimeout(() => {
+                        branchOptions.forEach(opt => opt.classList.remove('active'));
+                        document.querySelector(`.branch-option[data-branch="${branchId}"]`).classList.add('active');
+                        
+                        branchInfos.forEach(info => info.classList.remove('active'));
+                        document.getElementById(`${branchId}-info`).classList.add('active');
+                    }, 500);
+                });
+            });
+            
+            // Form Validation and Submission
+            const contactForm = document.getElementById('contact-form');
+            const formResults = document.getElementById('form-results');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Reset error messages
+                    clearErrors();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const branch = document.getElementById('branch').value;
+                    const message = document.getElementById('message-text').value.trim();
+                    
+                    // Validation flags
+                    let isValid = true;
+                    
+                    // Name validation
+                    if (name === '') {
+                        showError('name-error', 'Name is required');
+                        isValid = false;
+                    } else if (name.length < 2) {
+                        showError('name-error', 'Name must be at least 2 characters long');
+                        isValid = false;
+                    }
+                    
+                    // Email validation
+                    if (email === '') {
+                        showError('email-error', 'Email is required');
+                        isValid = false;
+                    } else if (!isValidEmail(email)) {
+                        showError('email-error', 'Please enter a valid email address');
+                        isValid = false;
+                    }
+                    
+                    // Phone validation
+                    if (phone === '') {
+                        showError('phone-error', 'Phone number is required');
+                        isValid = false;
+                    } else if (!isValidPhone(phone)) {
+                        showError('phone-error', 'Please enter a valid phone number');
+                        isValid = false;
+                    }
+                    
+                    // Message validation
+                    if (message === '') {
+                        showError('message-error', 'Message is required');
+                        isValid = false;
+                    } else if (message.length < 10) {
+                        showError('message-error', 'Message must be at least 10 characters long');
+                        isValid = false;
+                    }
+                    
+                    // If form is valid, display results
+                    if (isValid) {
+                        displayFormResults(name, email, phone, branch, message);
+                        contactForm.reset();
+                    }
+                });
+            }
+            
+            // Helper Functions
+            function showError(elementId, message) {
+                const errorElement = document.getElementById(elementId);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                }
+            }
+            
+            function clearErrors() {
+                const errorElements = document.querySelectorAll('.error-message');
+                errorElements.forEach(element => {
+                    element.textContent = '';
+                });
+            }
+            
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            function isValidPhone(phone) {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+            }
+            
+            function displayFormResults(name, email, phone, branch, message) {
+                if (formResults) {
+                    document.getElementById('result-name').textContent = name;
+                    document.getElementById('result-email').textContent = email;
+                    document.getElementById('result-phone').textContent = phone;
+                    
+                    // Display branch name or "Not specified"
+                    const branchSelect = document.getElementById('branch');
+                    const selectedOption = branchSelect.options[branchSelect.selectedIndex];
+                    document.getElementById('result-branch').textContent = branch ? selectedOption.text : 'Not specified';
+                    
+                    document.getElementById('result-message').textContent = message;
+                    
+                    formResults.style.display = 'block';
+                    
+                    // Scroll to results
+                    formResults.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
