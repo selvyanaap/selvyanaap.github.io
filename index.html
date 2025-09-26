@@ -75,7 +75,6 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
         }
 
         .nav-link:hover {
@@ -108,7 +107,6 @@
             padding: 12px 30px;
             border-radius: var(--radius);
             text-decoration: none;
-            font-weight: 600;
             margin: 0 10px;
             transition: background 0.3s;
         }
@@ -128,6 +126,35 @@
             color: var(--dark);
         }
 
+        .photo-container {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
         .branch-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -141,13 +168,13 @@
             border-radius: var(--radius);
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s;
             border: 2px solid transparent;
+            transition: all 0.3s;
         }
 
         .branch-option:hover {
-            transform: translateY(-5px);
             border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
         .branch-option i {
@@ -188,11 +215,12 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            
             .branch-options {
                 grid-template-columns: 1fr;
             }
-            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
             .nav-menu {
                 display: none;
             }
@@ -229,11 +257,23 @@
 
     <section id="about">
         <div class="container">
-            <h2>About Our Company</h2>
-            <p style="text-align: center; font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem;">
-                GlobalTech Solutions has been providing cutting-edge technology services since 2012. 
-                We specialize in software development, cloud solutions, and digital transformation.
-            </p>
+            <h2>Our Profile</h2>
+            
+            <!-- Office Image -->
+            <div class="photo-container">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80" alt="Modern Office Space">
+            </div>
+            
+            <div class="about-content">
+                <div>
+                    <h3>About GlobalTech</h3>
+                    <p>Founded in 2012, GlobalTech has grown from a small startup to a leading technology solutions provider with a global presence. We specialize in software development, cloud solutions, and digital transformation services.</p>
+                    <p>Our team of over 300 professionals works with clients across various industries, including finance, healthcare, e-commerce, and education.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80" alt="Our Team">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -245,19 +285,19 @@
                     <i class="fas fa-city"></i>
                     <h3>New York</h3>
                     <p>Headquarters</p>
-                    <p>USA</p>
+                    <p><small>123 Tech Avenue, Manhattan, NY</small></p>
                 </div>
                 <div class="branch-option">
                     <i class="fas fa-landmark"></i>
                     <h3>London</h3>
                     <p>European Hub</p>
-                    <p>United Kingdom</p>
+                    <p><small>45 Innovation Street, London</small></p>
                 </div>
                 <div class="branch-option">
                     <i class="fas fa-globe-asia"></i>
                     <h3>Singapore</h3>
                     <p>Asia-Pacific Center</p>
-                    <p>Singapore</p>
+                    <p><small>10 Marina Boulevard, Singapore</small></p>
                 </div>
             </div>
         </div>
@@ -265,7 +305,7 @@
 
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>Message Us</h2>
             <div class="contact-form">
                 <div class="form-group">
                     <input type="text" placeholder="Your Name" required>
@@ -293,6 +333,11 @@
         <div class="container">
             <p>&copy; 2023 GlobalTech Solutions. All rights reserved.</p>
             <p>Email: info@globaltech.com | Phone: +1 (555) 123-4567</p>
+            <div style="margin-top: 1rem;">
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
 
@@ -301,8 +346,10 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
 
@@ -319,6 +366,28 @@
             e.preventDefault();
             alert('Thank you! Your message has been sent. We will contact you soon.');
             document.querySelector('.contact-form').reset();
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
